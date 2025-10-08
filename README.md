@@ -7,9 +7,10 @@ Aplicación web para autotest de COVID-19 sin registro, con ID aleatorio y almac
 - `frontend/`: Archivos estáticos (HTML, CSS, JS)
 - `backend/`: Servidor Node.js con Express y MongoDB
 
-## Despliegue en Render
+## Opciones de Despliegue
 
-### Backend (Servicio Web)
+### Opción 1: Render (Recomendado)
+#### Backend (Servicio Web)
 1. Crea un nuevo servicio web en Render.
 2. Conecta tu repositorio Git.
 3. Configura:
@@ -19,7 +20,7 @@ Aplicación web para autotest de COVID-19 sin registro, con ID aleatorio y almac
 4. Agrega variable de entorno: `MONGODB_URI` con tu cadena de conexión de MongoDB Atlas.
 5. Despliega.
 
-### Frontend (Sitio Estático)
+#### Frontend (Sitio Estático)
 1. Crea un nuevo sitio estático en Render.
 2. Conecta el mismo repositorio.
 3. Configura:
@@ -27,7 +28,19 @@ Aplicación web para autotest de COVID-19 sin registro, con ID aleatorio y almac
    - **Publish Directory**: `frontend`
 4. Despliega.
 
-Nota: Actualiza la URL del backend en `frontend/script.js` si es necesario (por defecto usa `/api/submit` relativo).
+### Opción 2: Vercel
+- **Frontend**: Importa el repo, configura `frontend` como root directory.
+- **Backend**: Usa Vercel Functions (renombra `backend/server.js` a `api/submit.js` y ajusta).
+
+### Opción 3: Netlify + Railway
+- **Frontend**: Despliega en Netlify, conecta repo, publish `frontend`.
+- **Backend**: Despliega en Railway, conecta repo, configura Node.js.
+
+### Opción 4: Heroku + GitHub Pages
+- **Frontend**: Sube `frontend` a GitHub Pages.
+- **Backend**: Despliega en Heroku, conecta repo, comando `npm start`.
+
+Nota: Para todas, actualiza CORS en `backend/server.js` con la URL del frontend si es necesario.
 
 ## Desarrollo Local
 
