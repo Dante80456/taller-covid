@@ -22,7 +22,7 @@ const testSchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now }
 });
 
-const Test = mongoose.model('Test', testSchema);
+const Test = mongoose.model('test', testSchema);
 
 // Endpoint para recibir el diagnóstico
 app.post('/api/submit', async (req, res) => {
